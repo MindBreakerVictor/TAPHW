@@ -6,18 +6,14 @@ import java.util.*;
 public class Main {
 
     private static class Cube implements Comparable<Cube> {
-        public int color;
-        public int dimension;
-        public int index;
+        int index;
+        int color;
+        int dimension;
 
         Cube(int index, int dimension, int color) {
-            this.dimension = dimension;
-            this.color = color;
             this.index = index;
-        }
-
-        public boolean equals(Cube right) {
-            return color == right.color && dimension == right.dimension;
+            this.color = color;
+            this.dimension = dimension;
         }
 
         @Override
@@ -34,11 +30,9 @@ public class Main {
 
                 if (color > right.color)
                     return 1;
-
-                return 0;
             }
 
-            return 0;
+            return Integer.compare(index, right.index);
         }
 
         boolean canRide(Cube base) {
@@ -64,26 +58,22 @@ public class Main {
                 noColors = scanner.nextInt();
 
             for (int i = 0; i < noCubes; ++i) {
-                if (scanner.hasNextInt()) {
-                    int dim = scanner.nextInt();
-
-                    if (scanner.hasNextInt()) {
-                        int color = scanner.nextInt();
-                        cubes.add(new Cube(index++, dim, color));
-                    }
-                    else {
-                        // We can't have a cube without color. INVALID DATA!
-                        System.out.println("We can't have a cube without color.");
-                        System.out.println("Halting process.");
-                        return;
-                    }
-                }
-                else {
-                    // There are no more cubes in data.in INVALID DATA!
+                if (!scanner.hasNextInt()) {
                     System.out.println("There are less cubes in data.in than specified in the first line.");
                     System.out.println("Halting process.");
                     return;
                 }
+
+                int dim = scanner.nextInt();
+
+                if (!scanner.hasNextInt()) {
+                    System.out.println("We can't have a cube without color.");
+                    System.out.println("Halting process.");
+                    return;
+                }
+
+                int color = scanner.nextInt();
+                cubes.add(new Cube(index++, dim, color));
             }
 
             int height = 0;
