@@ -1,9 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.Stack;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
 
@@ -20,10 +18,10 @@ public class Main {
 
         @Override
         public int compareTo(Activity right) {
-            if (deadline < right.deadline)
+            if (deadline > right.deadline)
                 return -1;
 
-            if (deadline > right.deadline)
+            if (deadline < right.deadline)
                 return 1;
 
             if (deadline == right.deadline) {
@@ -35,6 +33,12 @@ public class Main {
             }
 
             return Integer.compare(index, right.index);
+        }
+    }
+
+    static class ActivityComparator implements Comparator<Activity> {
+        public int compare(Activity left, Activity right) {
+            return right.profit - left.profit;
         }
     }
 
@@ -67,23 +71,32 @@ public class Main {
             }
 
             int profit = 0;
-            Stack<Activity> jobs = new Stack<>();
+            int currentDeadline = activities.first().deadline;
+            PriorityQueue<Activity> jobs = new PriorityQueue<>(activitiesNo, new ActivityComparator());
+            Stack<Activity> todo = new Stack<>();
 
-            while (!activities.isEmpty()) {
-                Activity activity = activities.pollFirst();
+            while ((!activities.isEmpty() || !jobs.isEmpty()) && currentDeadline > 0) {
+                while (!activities.isEmpty() && activities.first().deadline == currentDeadline)
+                    jobs.add(activities.pollFirst());
 
-                if (activity.deadline > jobs.size()) {
-                    jobs.push(activity);
-                    profit += activity.profit;
+                --currentDeadline;
+
+                if (jobs.isEmpty()) {
+                    profit += activities.first().profit;
+                    todo.push(activities.pollFirst());
+                    continue;
                 }
+
+                profit += jobs.peek().profit;
+                todo.push(jobs.poll());
             }
 
             writer.println(profit);
 
-            Activity[] act = jobs.toArray(new Activity[jobs.size()]);
+            Activity[] act = todo.toArray(new Activity[jobs.size()]);
 
-            for (Activity anAct : act)
-                writer.printf("%d ", anAct.index);
+            for (int i = act.length - 1; i >= 0; --i)
+                writer.printf("%d ", act[i].index);
 
             writer.close();
             scanner.close();
