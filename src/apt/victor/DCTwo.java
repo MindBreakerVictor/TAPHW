@@ -41,17 +41,19 @@ public class DCTwo {
         if (holeRowIndex < row || holeRowIndex > row + size / 2 - 1)
         {
             // Dial 1 or 3, no hole.
-            if (column + size/ 2 - 1 < dial)
+            if (column + size / 2 - 1 < dial)
             {
                 // Dial 1, no hole.
                 if (row + size / 2 - 1 < dial)
                 {
+                    //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
 
-                    for (int i = row + size / 4; i <= row + size / 2 - 1; i++)
-                        for (int j = column; j <= column + size / 4 - 1; j++)
+                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 4 - 1);
+                    for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
+                        for (int j = column; j <= column + size / 4 - 1; ++j)
                             board[i][j] = pieceCounter;
 
                     ++pieceCounter;
@@ -60,10 +62,12 @@ public class DCTwo {
                 // Dial 3, no hole.
                 else
                 {
+                    //setPiece(row, row + size / 4 - 1, column, column + size / 4 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column; j <= column + size / 4 - 1; ++j)
                             board[i][j] = pieceCounter;
 
+                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 2 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -78,10 +82,12 @@ public class DCTwo {
                 // Dial 2, no hole.
                 if (row + size / 2 - 1 < size)
                 {
+                    //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
 
+                    //setPiece(row + size / 4, row + size / 2 - 1, column + size / 4, column + size / 2 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column + size / 4; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -92,10 +98,12 @@ public class DCTwo {
                 // Dial 4, no hole.
                 else
                 {
+                    //setPiece(row, row + size / 4 - 1, column + size / 4, column + size / 2 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column + size / 4; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
 
+                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 2 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -117,10 +125,12 @@ public class DCTwo {
                     // Dial 1, no hole.
                     if (row + size / 2 - 1 < dial)
                     {
+                        //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1);
                         for (int i = row; i <= row + size / 4 - 1; ++i)
                             for (int j = column; j <= column + size / 2 - 1; ++j)
                                 board[i][j] = pieceCounter;
 
+                        //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 4 - 1);
                         for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                             for (int j = column; j <= column + size / 4 - 1; ++j)
                                 board[i][j] = pieceCounter;
@@ -131,10 +141,12 @@ public class DCTwo {
                     // Dial 3, no hole.
                     else
                     {
+                        //setPiece(row, row + size / 4 - 1, column, column + size / 4 - 1);
                         for (int i = row; i <= row + size / 4 - 1; ++i)
                             for (int j = column; j <= column + size / 4 - 1; ++j)
                                 board[i][j] = pieceCounter;
 
+                        //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 2 - 1);
                         for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                             for (int j = column; j <= column + size / 2 - 1; ++j)
                                 board[i][j] = pieceCounter;
@@ -149,10 +161,12 @@ public class DCTwo {
                     // Dial 2, no hole.
                     if (row + size / 2 - 1 < dial)
                     {
+                        //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1);
                         for (int i = row; i <= row + size / 4 - 1; ++i)
                             for (int j = column; j <= column + size / 2 - 1; ++j)
                                 board[i][j] = pieceCounter;
 
+                        //setPiece(row + size / 4, row + size / 2 - 1, column + size / 4, column + size / 2 - 1);
                         for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                             for (int j = column + size / 4; j <= column + size / 2 - 1; ++j)
                                 board[i][j] = pieceCounter;
@@ -163,10 +177,12 @@ public class DCTwo {
                     // Dial 4, no hole.
                     else
                     {
+                        //setPiece(row, row + size / 4 - 1, column + size / 4, column + size / 2 - 1);
                         for (int i = row; i <= row + size / 4 - 1; ++i)
                             for (int j = column + size / 4; j <= column + size / 2 - 1; ++j)
                                 board[i][j] = pieceCounter;
 
+                        //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 2 - 1);
                         for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                             for (int j = column; j <= column + size / 2 - 1; ++j)
                                 board[i][j] = pieceCounter;
@@ -183,9 +199,12 @@ public class DCTwo {
                 // The hole is in the first minidial.
                 if (holeRowIndex >= row && holeRowIndex <= row + size / 4 - 1 && holeColumnIndex >= column && holeColumnIndex <= column + size / 4 - 1)
                 {
+                    //setPiece(row, row + size / 4 - 1, column + size / 4, column + size / 2 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column + size / 4; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
+
+                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 2 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -196,9 +215,12 @@ public class DCTwo {
                 // The hole is in the second minidial.
                 else if (holeRowIndex >= row && holeRowIndex <= row + size / 4 - 1 && holeColumnIndex >= column + size / 4 && holeColumnIndex <= column + size / 2 - 1)
                 {
+                    //setPiece(row, row + size / 4 - 1, column, column + size / 4 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column; j <= column + size / 4 - 1; ++j)
                             board[i][j] = pieceCounter;
+
+                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 2 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -209,9 +231,12 @@ public class DCTwo {
                 // The hole is in the third minidial.
                 else if (holeRowIndex >= row + size / 4 && holeRowIndex <= row + size / 2 - 1 && holeColumnIndex >= column && holeColumnIndex <= column + size / 4 - 1)
                 {
+                    //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
+
+                    //setPiece(row + size / 4, row + size / 2 - 1, column + size / 4, column + size / 2 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column + size / 4; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -222,12 +247,12 @@ public class DCTwo {
                 // The hole is in the fourth minidial.
                 else if (holeRowIndex >= row + size / 4 && holeRowIndex <= row + size / 2 - 1 && holeColumnIndex >= column + size / 4 && holeColumnIndex <= column + size / 2 - 1)
                 {
-                    //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1, pieceCounter);
+                    //setPiece(row, row + size / 4 - 1, column, column + size / 2 - 1);
                     for (int i = row; i <= row + size / 4 - 1; ++i)
                         for (int j = column; j <= column + size / 2 - 1; ++j)
                             board[i][j] = pieceCounter;
 
-                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 4 - 1, pieceCounter);
+                    //setPiece(row + size / 4, row + size / 2 - 1, column, column + size / 4 - 1);
                     for (int i = row + size / 4; i <= row + size / 2 - 1; ++i)
                         for (int j = column; j <= column + size / 4 - 1; ++j)
                             board[i][j] = pieceCounter;
@@ -255,7 +280,7 @@ public class DCTwo {
             board[i + 1][i + 1] = pieceCounter;
     }
 
-    private void setPiece(int rowS, int rowE, int columnS, int columnE, int pieceCounter) {
+    private void setPiece(int rowS, int rowE, int columnS, int columnE) {
         for (int i = rowS; i <= rowE; ++i)
             for (int j = columnS; j <= columnE; ++j)
                 board[i][j] = pieceCounter;
