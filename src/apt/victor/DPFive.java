@@ -28,6 +28,7 @@ public class DPFive {
         }
     }
 
+    private int totalProfit;
     private int[][] M;
     private Activity[] activities;
 
@@ -51,6 +52,7 @@ public class DPFive {
             }
 
         printSolution(out, activities.length - 1, highestDeadline);
+        out.printf("\n%d", totalProfit);
     }
 
     private void printSolution(PrintWriter out, int i, int t) {
@@ -60,7 +62,8 @@ public class DPFive {
         if (M[i][t] != M[i - 1][t]) {
             int time = Math.min(t, activities[i].deadline) - activities[i].duration;
             printSolution(out, i - 1, time);
-            out.println("Schedule job " + Integer.toString(activities[i].index) + " at time " + Integer.toString(time));
+            out.printf("%d ", activities[i].index);
+            totalProfit += activities[i].profit;
             return;
         }
 
