@@ -13,7 +13,6 @@ public class DPThree {
 
         for (int i = 1; i < word.length(); ++i) {
             usedWords[i] = word.length();
-            boolean[] available = new boolean[dictionary.size()];
 
             for (String dictionaryWord : dictionary) {
                 int wordOffset = i - dictionaryWord.length() + 1;
